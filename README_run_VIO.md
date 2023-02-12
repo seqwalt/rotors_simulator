@@ -71,7 +71,7 @@ source devel/setup.bash
 
 2. Start the node that publishes the ground truth (GT) path, using the GT odometry as input:
 ```
-cd path/to/repo
+cd path/to/this/RotorS/repo
 ./ground_truth_odom2path.py
 ```
 
