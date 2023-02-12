@@ -67,16 +67,24 @@ source devel/setup.bash
 # VINS-Fusion Experiments
 
 ## Run VINS-Fusion with quadcopter in RotorS simulator.
-1) Launch the RotorS simulator as in the ROVIO RotorS section above:
+1. Launch the RotorS simulator as in the ROVIO RotorS section above:
 
-2) Start the node that publishes the ground truth (GT) path, using the GT odometry as input:
-2.1) >>> cd ~/ROS/catkin_ws/src (where ground_truth_odom2path.py is located)
-2.2) >>> ./ground_truth_odom2path.py (run the node)
+2. Start the node that publishes the ground truth (GT) path, using the GT odometry as input:
+```
+cd path/to/repo
+./ground_truth_odom2path.py
+```
 
-3) Start rviz and vins-fusion  
+3. Start rviz  
 ```roslaunch vins vins_rviz.launch```  
-```rosrun vins vins_node ~/ROS/catkin_ws/src/VINS-Fusion/config/RotorS_sim/RotorS_stereo.yaml``` (for stereo only)  
-```rosrun vins vins_node ~/ROS/catkin_ws/src/VINS-Fusion/config/RotorS_sim/RotorS_stereo.yaml``` (for stereo + imu)  
+4. Option 1: Start **stereo only** VINS-Fusion
+```
+rosrun vins vins_node ~/ROS/catkin_ws/src/VINS-Fusion/config/RotorS_sim/RotorS_stereo.yaml
+```
+5. Option 2: Start **stereo & IMU** VINS-Fusion
+```
+rosrun vins vins_node ~/ROS/catkin_ws/src/VINS-Fusion/config/RotorS_sim/RotorS_stereo.yaml
+```
 
 Note 1): ../VINS-Fusion/vins_estimator/src/rosNodeTest.cpp was changed to give the
 initial position of (-5, 0, 5) and an initial rotation for the camera (starting on line 244). In order to change this,
